@@ -1,10 +1,10 @@
 <?php
 
-namespace Kordy\Ticketit\Models;
+namespace Brazidev\Ticketit\Models;
 
 use Cache;
 use Illuminate\Database\Eloquent\Model;
-use Kordy\Ticketit\Models\Setting as Table;
+use Brazidev\Ticketit\Models\Setting as Table;
 
 class Setting extends Model
 {

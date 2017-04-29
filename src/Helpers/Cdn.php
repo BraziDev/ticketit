@@ -1,6 +1,6 @@
 <?php
 
-namespace Kordy\Ticketit\Helpers;
+namespace Brazidev\Ticketit\Helpers;
 
 /**
  * This file containes the version of different external JS and CSS libraries

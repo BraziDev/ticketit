@@ -1,14 +1,14 @@
 <?php
 
-namespace Kordy\Ticketit\Controllers;
+namespace Brazidev\Ticketit\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Kordy\Ticketit\Models\Configuration;
-use Kordy\Ticketit\Models\Setting;
+use Brazidev\Ticketit\Models\Configuration;
+use Brazidev\Ticketit\Models\Setting;
 
 class ConfigurationsController extends Controller
 {
@@ -82,7 +82,7 @@ class ConfigurationsController extends Controller
 
       Session::flash('configuration', 'Setting saved successfully.');
       \Cache::forget('settings'); // refresh cached settings
-    return redirect()->action('\Kordy\Ticketit\Controllers\ConfigurationsController@index');
+    return redirect()->action('\Brazidev\Ticketit\Controllers\ConfigurationsController@index');
   }
 
   /**
@@ -130,6 +130,6 @@ class ConfigurationsController extends Controller
       Session::flash('configuration', trans('ticketit::lang.configuration-name-has-been-modified', ['name' => $request->name]));
       \Cache::forget('settings'); // refresh cached settings
     //return redirect(route('ticketit::admin.configuration.index'));
-    return redirect()->action('\Kordy\Ticketit\Controllers\ConfigurationsController@index');
+    return redirect()->action('\Brazidev\Ticketit\Controllers\ConfigurationsController@index');
   }
 }

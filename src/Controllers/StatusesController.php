@@ -1,11 +1,11 @@
 <?php
 
-namespace Kordy\Ticketit\Controllers;
+namespace Brazidev\Ticketit\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Kordy\Ticketit\Models\Status;
+use Brazidev\Ticketit\Models\Status;
 
 class StatusesController extends Controller
 {
@@ -50,7 +50,7 @@ class StatusesController extends Controller
 
         Session::flash('status', trans('ticketit::lang.status-name-has-been-created', ['name' => $request->name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\StatusesController@index');
+        return redirect()->action('\Brazidev\Ticketit\Controllers\StatusesController@index');
     }
 
     /**
@@ -99,7 +99,7 @@ class StatusesController extends Controller
 
         Session::flash('status', trans('ticketit::lang.status-name-has-been-modified', ['name' => $request->name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\StatusesController@index');
+        return redirect()->action('\Brazidev\Ticketit\Controllers\StatusesController@index');
     }
 
     /**
@@ -117,6 +117,6 @@ class StatusesController extends Controller
 
         Session::flash('status', trans('ticketit::lang.status-name-has-been-deleted', ['name' => $name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\StatusesController@index');
+        return redirect()->action('\Brazidev\Ticketit\Controllers\StatusesController@index');
     }
 }

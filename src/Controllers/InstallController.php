@@ -1,6 +1,6 @@
 <?php
 
-namespace Kordy\Ticketit\Controllers;
+namespace Brazidev\Ticketit\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Kordy\Ticketit\Models\Agent;
-use Kordy\Ticketit\Models\Setting;
-use Kordy\Ticketit\Seeds\SettingsTableSeeder;
-use Kordy\Ticketit\Seeds\TicketitTableSeeder;
+use Brazidev\Ticketit\Models\Agent;
+use Brazidev\Ticketit\Models\Setting;
+use Brazidev\Ticketit\Seeds\SettingsTableSeeder;
+use Brazidev\Ticketit\Seeds\TicketitTableSeeder;
 
 class InstallController extends Controller
 {
@@ -28,10 +28,10 @@ class InstallController extends Controller
     public function publicAssets()
     {
         $public = $this->allFilesList(public_path('vendor/ticketit'));
-        $assets = $this->allFilesList(base_path('vendor/kordy/ticketit/src/Public'));
+        $assets = $this->allFilesList(base_path('vendor/brazidev/ticketit/src/Public'));
         if ($public !== $assets) {
             Artisan::call('vendor:publish', [
-                '--provider' => 'Kordy\\Ticketit\\TicketitServiceProvider',
+                '--provider' => 'Brazidev\\Ticketit\\TicketitServiceProvider',
                 '--tag'      => ['public'],
             ]);
         }
@@ -116,7 +116,7 @@ class InstallController extends Controller
         $inactive_migrations = $this->inactiveMigrations();
         if ($inactive_migrations) { // If a migration is missing, do the migrate
             Artisan::call('vendor:publish', [
-                '--provider' => 'Kordy\\Ticketit\\TicketitServiceProvider',
+                '--provider' => 'Brazidev\\Ticketit\\TicketitServiceProvider',
                 '--tag'      => ['db'],
             ]);
             Artisan::call('migrate');
@@ -274,6 +274,6 @@ class InstallController extends Controller
         $seeder->run();
         session()->flash('status', 'Demo tickets, users, and agents are seeded!');
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\TicketsController@index');
+        return redirect()->action('\Brazidev\Ticketit\Controllers\TicketsController@index');
     }
 }

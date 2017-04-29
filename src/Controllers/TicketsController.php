@@ -1,15 +1,15 @@
 <?php
 
-namespace Kordy\Ticketit\Controllers;
+namespace Brazidev\Ticketit\Controllers;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Kordy\Ticketit\Models;
-use Kordy\Ticketit\Models\Agent;
-use Kordy\Ticketit\Models\Category;
-use Kordy\Ticketit\Models\Setting;
-use Kordy\Ticketit\Models\Ticket;
+use Brazidev\Ticketit\Models;
+use Brazidev\Ticketit\Models\Agent;
+use Brazidev\Ticketit\Models\Category;
+use Brazidev\Ticketit\Models\Setting;
+use Brazidev\Ticketit\Models\Ticket;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -20,9 +20,9 @@ class TicketsController extends Controller
 
     public function __construct(Ticket $tickets, Agent $agent)
     {
-        $this->middleware('Kordy\Ticketit\Middleware\ResAccessMiddleware', ['only' => ['show']]);
-        $this->middleware('Kordy\Ticketit\Middleware\IsAgentMiddleware', ['only' => ['edit', 'update']]);
-        $this->middleware('Kordy\Ticketit\Middleware\IsAdminMiddleware', ['only' => ['destroy']]);
+        $this->middleware('Brazidev\Ticketit\Middleware\ResAccessMiddleware', ['only' => ['show']]);
+        $this->middleware('Brazidev\Ticketit\Middleware\IsAgentMiddleware', ['only' => ['edit', 'update']]);
+        $this->middleware('Brazidev\Ticketit\Middleware\IsAdminMiddleware', ['only' => ['destroy']]);
 
         $this->tickets = $tickets;
         $this->agent = $agent;
@@ -196,7 +196,7 @@ class TicketsController extends Controller
 
         session()->flash('status', trans('ticketit::lang.the-ticket-has-been-created'));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\TicketsController@index');
+        return redirect()->action('\Brazidev\Ticketit\Controllers\TicketsController@index');
     }
 
     /**

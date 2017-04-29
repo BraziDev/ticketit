@@ -1,11 +1,11 @@
 <?php
 
-namespace Kordy\Ticketit\Controllers;
+namespace Brazidev\Ticketit\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Kordy\Ticketit\Models\Priority;
+use Brazidev\Ticketit\Models\Priority;
 
 class PrioritiesController extends Controller
 {
@@ -50,7 +50,7 @@ class PrioritiesController extends Controller
 
         Session::flash('status', trans('ticketit::lang.priority-name-has-been-created', ['name' => $request->name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\PrioritiesController@index');
+        return redirect()->action('\Brazidev\Ticketit\Controllers\PrioritiesController@index');
     }
 
     /**
@@ -99,7 +99,7 @@ class PrioritiesController extends Controller
 
         Session::flash('status', trans('ticketit::lang.priority-name-has-been-modified', ['name' => $request->name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\PrioritiesController@index');
+        return redirect()->action('\Brazidev\Ticketit\Controllers\PrioritiesController@index');
     }
 
     /**
@@ -117,6 +117,6 @@ class PrioritiesController extends Controller
 
         Session::flash('status', trans('ticketit::lang.priority-name-has-been-deleted', ['name' => $name]));
 
-        return redirect()->action('\Kordy\Ticketit\Controllers\PrioritiesController@index');
+        return redirect()->action('\Brazidev\Ticketit\Controllers\PrioritiesController@index');
     }
 }
